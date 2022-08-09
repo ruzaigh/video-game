@@ -17,6 +17,7 @@ import {HttpHeadersInterceptor} from "./interceptors/http-headers";
 import {HttpErrorsInterceptor} from "./interceptors/http-errors";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { DetailsComponent } from './components/details/details.component';
+import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { DetailsComponent } from './components/details/details.component';
     AppComponent,
     SearchBarComponent,
     HomeComponent,
-    DetailsComponent
+    DetailsComponent,
+    GameTabsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {APIResponse, Game} from "../../models";
 import {HttpService} from "../../services/http.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 
 @Component({
@@ -25,13 +25,13 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loading = true;
-   this.routeSub = this.activatedRoute.queryParams.subscribe(params => {
-      if (params['game-sort']) {
-        this.searchGames('metacrit', params['game-sort']);
+    this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
+      if (params['game-search']) {
+        this.searchGames('metacrit', params['game-search']);
       } else {
         this.searchGames('metacrit');
       }
-    })
+    });
   }
 
   searchGames(sort: string, search?: string): void {
